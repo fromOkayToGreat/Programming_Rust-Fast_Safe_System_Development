@@ -161,3 +161,11 @@ fn main() {
 ```
 > The `args` function returns an iterator that produces a sequence of command-line arguments.  The `collect` method consumes the iterator and collects the arguments into a vector.  The `len` method is used to check that the program was called with exactly one argument.  The `eprintln!` macro is used to print an error message to the screen.  The `exit` function is used to terminate the program with an error code.  The `println!` macro is used to print the greeting to the screen.
 
+
+## Serving Pages to the Web
+
+A Rust package, wether a library or an exacutable, is called a *crate*.  A crate is a collection of Rust source files.  The `Cargo.toml` file is used to configure a crate.  The `Cargo.lock` file stores information about the exact versions of dependencies that were used in the last build.  This file is used to ensure that the same versions of dependencies are used in every build.
+
+**See example: `ch2/actix-gcd`**
+
+
