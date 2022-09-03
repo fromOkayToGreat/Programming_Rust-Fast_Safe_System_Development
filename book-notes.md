@@ -145,3 +145,19 @@ The #[test] marks the `test_gcd` as a test function, to ber skipped in normal co
 
 ## Handling Command-Line Arguments
 
+The `std::env` module provides functions for working with the program's environment, including the command-line arguments.  The `args` function returns an iterator that produces a sequence of command-line arguments.  The first argument is the path of the program, and the remaining arguments are the arguments that were passed to the program.
+
+
+Ex.1
+```
+fn main() {
+    let args: Vec<String> = std::env::args().collect();
+    if args.len() != 2 {
+        eprintln!("Usage: hello NAME");
+        std::process::exit(1);
+    }
+    println!("Hello, {}!", args[1]);
+}
+```
+> The `args` function returns an iterator that produces a sequence of command-line arguments.  The `collect` method consumes the iterator and collects the arguments into a vector.  The `len` method is used to check that the program was called with exactly one argument.  The `eprintln!` macro is used to print an error message to the screen.  The `exit` function is used to terminate the program with an error code.  The `println!` macro is used to print the greeting to the screen.
+
