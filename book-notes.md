@@ -164,8 +164,17 @@ fn main() {
 
 ## Serving Pages to the Web
 
-A Rust package, wether a library or an exacutable, is called a *crate*.  A crate is a collection of Rust source files.  The `Cargo.toml` file is used to configure a crate.  The `Cargo.lock` file stores information about the exact versions of dependencies that were used in the last build.  This file is used to ensure that the same versions of dependencies are used in every build.
+A Rust package, wether a library or an exacutable, is called  a *crate*.  A crate is a collection of Rust source files.  The `Cargo.toml` file is used to configure a crate.  The `Cargo.lock` file stores information about the exact versions of dependencies that were used in the last build.  This file is used to ensure that the same versions of dependencies are used in every build.
 
 **See example: `ch2/actix-gcd`**
 
+## Concurrency
+
+The rules tha ensure that Rust programs are free of memory erros also ensures that threads can share memory only in ways that avoid data races.
+
+- Using a mutex to coordinate threads making change to a shared data structure, Rust ensures that you can't access the data except when you're holding the lock, and releae the lock automatically when you're done.
+- Transfering data ownership from one thread to another, Rust ensures that all access to it has been relinquished before the data is used in the new thread.
+- Sharing read-only data among several threads, Rust ensure that you cannot modify the data accidentally.
+
+**See example: `ch2/mandelbrot`**
 
