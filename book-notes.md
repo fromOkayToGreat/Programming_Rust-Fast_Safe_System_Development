@@ -176,5 +176,21 @@ The rules tha ensure that Rust programs are free of memory erros also ensures th
 - Transfering data ownership from one thread to another, Rust ensures that all access to it has been relinquished before the data is used in the new thread.
 - Sharing read-only data among several threads, Rust ensure that you cannot modify the data accidentally.
 
-**See example: `ch2/mandelbrot`**
+Example (`ch2/actix-gcd`) The Actix web framework uses a pool of threads to run request handler functions.  If the server gets simultaneous requests, it can use the pool of threads to handle them in parallel.  The `actix-web` crate uses the `actix` crate to implement the actor model, which is a way of writing concurrent programs.  Rust guarantees this is safe to do, if the program compiles, it is free of data races.  **All Rust functions are thread safe**.
+
+**See example: `ch2/mandelbrot`** which plots a Mandelbrot set, a fratal produced by iterating a simple function on complex numbers.  Plotting the Mandelbrot set is often used as a benchmark for parallel programming languages, because it is a computationally intensive task that can be easily parallelized.
+
+## Filesystems and Command-Line Tools
+
+Rust has found a significant use in writing command-line tools.  The `std::fs` module provides functions for working with the filesystem.  The `std::io` module provides functions for working with input and output.  The `std::process` module provides functions for working with the current process. As a modern, safe, and fast systems programming lnaguage, Rust is a good choice for writing command-line tools.
+
+**See example: `ch2/quickreplace`**
+
+## The Command-Line Interface
+
+
+
+## Crate versions
+
+Rust creates that have reached version 1.0 follow the "semantic versioning" rules: the first number is the major version, the second number is the minor version, and the third number is the patch version.  The major version is incremented when a crate makes a breaking change, the minor version is incremented when a crate adds new features, and the patch version is incremented when a crate makes a bug fix.  The `Cargo.toml` file specifies the version of a crate that is required.  The `Cargo.lock` file specifies the exact version of each crate that was used in the last build.  The `Cargo.lock` file is used to ensure that the same versions of crates are used in every build.
 
